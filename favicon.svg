@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Dark background circle -->
+    <circle cx="16" cy="16" r="16" fill="#1a1a2e"/>
+    
+    <!-- Ladybug body -->
+    <g transform="translate(16,16) scale(0.8) translate(-16,-16)">
+        <!-- Main body (slightly rounded rectangle) -->
+        <path d="M13,12 Q16,8 19,12 Q22,16 19,20 Q16,24 13,20 Q10,16 13,12" 
+              fill="#ec4899"/>
+        
+        <!-- Spots -->
+        <circle cx="14" cy="14" r="1.5" fill="#1a1a2e"/>
+        <circle cx="18" cy="14" r="1.5" fill="#1a1a2e"/>
+        <circle cx="16" cy="17" r="1.5" fill="#1a1a2e"/>
+        
+        <!-- Head -->
+        <circle cx="16" cy="11" r="2.5" fill="#ec4899"/>
+        
+        <!-- Eyes -->
+        <circle cx="15" cy="10.5" r="0.8" fill="#fcd34d"/>
+        <circle cx="17" cy="10.5" r="0.8" fill="#fcd34d"/>
+        
+        <!-- Antennae -->
+        <path d="M14,9.5 Q13,8 12,8" stroke="#ec4899" stroke-width="1" fill="none"/>
+        <path d="M18,9.5 Q19,8 20,8" stroke="#ec4899" stroke-width="1" fill="none"/>
+    </g>
+</svg>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none;">
+    <!-- Existing icons (assumed) -->
+    <symbol id="icon-sparkle" viewBox="0 0 24 24">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    
+    <symbol id="sad-face" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="8" cy="9" r="1.5" fill="currentColor"/>
+        <circle cx="16" cy="9" r="1.5" fill="currentColor"/>
+        <path d="M8 15C8.5 13.5 10 12.5 12 12.5C14 12.5 15.5 13.5 16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    
+    <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+
+    <symbol id="icon-bug" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M8 12C8 12 10 14 12 14C14 14 16 12 16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M12 8V16" stroke="currentColor" stroke-width="2"/>
+        <path d="M15 7L17 5M9 7L7 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M15 17L17 19M9 17L7 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="github-icon" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12C2 16.42 5.87 20.17 10.84 21.5C11.34 21.58 11.5 21.27 11.5 21C11.5 20.77 11.5 20.14 11.5 19.31C8.73 19.91 8.14 17.97 8.14 17.97C7.68 16.81 7.03 16.5 7.03 16.5C6.12 15.88 7.1 15.9 7.1 15.9C8.1 15.97 8.63 16.93 8.63 16.93C9.5 18.45 11.06 18 11.54 17.76C11.63 17.11 11.89 16.67 12.17 16.42C9.95 16.17 7.62 15.31 7.62 11.5C7.62 10.39 8 9.5 8.65 8.79C8.55 8.54 8.2 7.5 8.75 6.15C8.75 6.15 9.59 5.88 11.5 7.17C12.29 6.95 13.14 6.84 14 6.84C14.86 6.84 15.71 6.95 16.5 7.17C18.41 5.88 19.25 6.15 19.25 6.15C19.8 7.5 19.45 8.54 19.35 8.79C20 9.5 20.38 10.39 20.38 11.5C20.38 15.32 18.04 16.16 15.81 16.41C16.17 16.72 16.5 17.33 16.5 18.26C16.5 19.6 16.5 20.68 16.5 21C16.5 21.27 16.66 21.59 17.17 21.5C22.14 20.16 26 16.42 26 12C26 6.48 21.52 2 16 2H12Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="twitter-icon" viewBox="0 0 24 24">
+        <path d="M23 3C22.1 3.35 21.1 3.58 20.1 3.69C21.1 3.08 21.9 2.1 22.3 0.9C21.3 1.5 20.2 1.9 19 2.2C18.1 1.2 16.8 0.6 15.3 0.6C12.5 0.6 10.1 3 10.1 5.8C10.1 6.2 10.2 6.6 10.3 7C6.7 6.8 3.6 4.6 1.5 1.5C1.1 2.3 0.9 3.1 0.9 4C0.9 5.7 1.7 7.1 3 8C2.2 8 1.5 7.8 0.9 7.4C0.9 7.4 0.9 7.4 0.9 7.5C0.9 10 2.7 12 5.1 12.5C4.7 12.6 4.3 12.7 3.9 12.7C3.6 12.7 3.3 12.6 3 12.6C3.6 14.6 5.5 16 7.8 16C6 17.2 3.8 17.9 1.4 17.9C1 17.9 0.6 17.9 0.2 17.8C2.5 19.1 5.2 19.8 8 19.8C15.3 19.8 19.3 13.7 19.3 8.4C19.3 8.2 19.3 8 19.3 7.8C20.3 7.1 21.2 6.2 22 5.2L23 3Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="email-icon" viewBox="0 0 24 24">
+        <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+
+    <symbol id="icon-detective" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <circle cx="9" cy="10" r="1.25" fill="currentColor"/>
+        <circle cx="15" cy="10" r="1.25" fill="currentColor"/>
+        <path d="M8 14.5C9 16 10.5 17 12 17C13.5 17 15 16 16 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M7 7C7 7 9 5 12 5C15 5 17 7 17 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M3.5 11.5C3.5 11.5 6 13 12 13C18 13 20.5 11.5 20.5 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Bug icons -->
+    <symbol id="bug-ladybug" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="currentColor"/>
+        <circle cx="8" cy="10" r="2" fill="black" opacity="0.3"/>
+        <circle cx="16" cy="10" r="2" fill="black" opacity="0.3"/>
+        <path d="M12 4L12 20" stroke="black" stroke-width="2" opacity="0.3"/>
+        <path d="M7 8L17 8" stroke="black" stroke-width="2" opacity="0.3"/>
+        <path d="M6 12L18 12" stroke="black" stroke-width="2" opacity="0.3"/>
+        <path d="M7 16L17 16" stroke="black" stroke-width="2" opacity="0.3"/>
+    </symbol>
+
+    <symbol id="bug-caterpillar" viewBox="0 0 24 24">
+        <circle cx="18" cy="12" r="3" fill="currentColor"/>
+        <circle cx="12" cy="12" r="3" fill="currentColor"/>
+        <circle cx="6" cy="12" r="3" fill="currentColor"/>
+        <circle cx="19" cy="10" r="1" fill="white"/>
+        <circle cx="17" cy="10" r="1" fill="white"/>
+        <path d="M20 12 L21 10 M20 12 L21 14" stroke="black" stroke-width="1"/>
+    </symbol>
+
+    <symbol id="bug-beetle" viewBox="0 0 24 24">
+        <path d="M12 4C7 4 3 8 3 13C3 18 7 20 12 20C17 20 21 18 21 13C21 8 17 4 12 4Z" fill="currentColor"/>
+        <path d="M7 8C7 8 9 6 12 6C15 6 17 8 17 8" stroke="black" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="9" cy="11" r="1.5" fill="black" opacity="0.3"/>
+        <circle cx="15" cy="11" r="1.5" fill="black" opacity="0.3"/>
+    </symbol>
+
+    <symbol id="bug-mosquito" viewBox="0 0 24 24">
+        <path d="M12 4C9 4 4 6 4 12C4 18 9 20 12 20C15 20 20 18 20 12C20 6 15 4 12 4Z" fill="currentColor"/>
+        <path d="M8 8L12 12M16 8L12 12M12 12V16" stroke="black" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="9" cy="10" r="1" fill="white"/>
+        <circle cx="15" cy="10" r="1" fill="white"/>
+    </symbol>
+
+    <symbol id="bug-cricket" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="12" rx="6" ry="8" fill="currentColor"/>
+        <path d="M6 12L3 9M6 12L3 12M6 12L3 15" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M18 12L21 9M18 12L21 12M18 12L21 15" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="10" cy="10" r="1" fill="black"/>
+        <circle cx="14" cy="10" r="1" fill="black"/>
+    </symbol>
+
+    <symbol id="bug-scorpion" viewBox="0 0 24 24">
+        <path d="M12 4C8 4 4 7 4 12C4 17 8 18 12 18C16 18 20 17 20 12C20 7 16 4 12 4Z" fill="currentColor"/>
+        <path d="M20 12C22 12 23 14 24 15C25 16 24 18 23 18L21 16" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M7 8L5 6M7 16L5 18" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="9" cy="11" r="1" fill="black"/>
+        <circle cx="15" cy="11" r="1" fill="black"/>
+    </symbol>
+</svg>

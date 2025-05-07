@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>404 — Bug Hunt Adventure</title>
+    <meta name="description" content="A playful interactive 404 page where you catch bugs, level up, and enjoy a digital adventure.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Social media meta tags -->
+    <meta property="og:title" content="404 — Bug Hunt Adventure">
+    <meta property="og:description" content="Catch bugs, level up, and debug your way through this interactive 404 page.">
+    <meta property="og:image" content="https://yourdomain.com/preview.png">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="404 — Bug Hunt Adventure">
+    <meta name="twitter:description" content="Catch bugs, level up, and debug your way through this interactive 404 page.">
+    <meta name="twitter:image" content="https://yourdomain.com/preview.png">
+
+    <title>404 - Bug Hunt Mode | Page Not Found</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico"> <!-- Fallback for browsers that don't support SVG -->
+    <!-- Note: The browser build of Tailwind CSS should not be used in production. 
+         For production, use the Tailwind CLI, Vite plugin, or PostCSS plugin: 
+         https://tailwindcss.com/docs/installation -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-between p-4 relative overflow-hidden dark:bg-gray-900">
+    <!-- Background elements -->
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black/50 to-black/80 z-0" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div id="star-background" class="fixed inset-0 z-0" aria-hidden="true"></div>
+
+    <nav class="absolute top-5 right-5 z-20 flex items-center gap-4" aria-label="Theme selection">
+        <div class="relative group">
+            <!-- Desktop theme selector button -->
+            <button id="theme-dropdown-button"
+                class="theme-button hidden md:flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-haspopup="true" aria-expanded="false" aria-controls="theme-dropdown-menu">
+                <span id="current-theme-text">Default</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            
+            <!-- Mobile hamburger menu button -->
+            <button id="mobile-menu-button"
+                class="md:hidden hamburger-button flex items-center justify-center w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-haspopup="true" aria-expanded="false" aria-label="Open theme menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            
+            <!-- Desktop theme dropdown menu -->
+            <div id="theme-dropdown-menu" role="menu"
+                class="hidden opacity-0 scale-95 transition-all duration-200 z-30 bg-gray-900 border border-accent/30 shadow-xl">
+                <div class="py-1">
+                    <button data-theme="default" role="menuitem"
+                        class="theme-option w-full text-left px-4 py-2 text-sm text-yellow-300 hover:bg-accent/20 transition-colors duration-200 flex items-center gap-2 focus:outline-none focus:bg-accent/30">
+                        <span class="w-3 h-3 rounded-full bg-yellow-300" aria-hidden="true"></span>
+                        Default
+                    </button>
+                    <button data-theme="retro" role="menuitem"
+                        class="theme-option w-full text-left px-4 py-2 text-sm text-green-400 hover:bg-accent/20 transition-colors duration-200 flex items-center gap-2 focus:outline-none focus:bg-accent/30">
+                        <span class="w-3 h-3 rounded-full bg-green-400" aria-hidden="true"></span>
+                        Retro
+                    </button>
+                    <button data-theme="neon" role="menuitem"
+                        class="theme-option w-full text-left px-4 py-2 text-sm text-blue-400 hover:bg-accent/20 transition-colors duration-200 flex items-center gap-2 focus:outline-none focus:bg-accent/30">
+                        <span class="w-3 h-3 rounded-full bg-blue-400" aria-hidden="true"></span>
+                        Neon
+                    </button>
+                    <button data-theme="cyberpunk" role="menuitem"
+                        class="theme-option w-full text-left px-4 py-2 text-sm text-pink-500 hover:bg-accent/20 transition-colors duration-200 flex items-center gap-2 focus:outline-none focus:bg-accent/30">
+                        <span class="w-3 h-3 rounded-full bg-pink-500" aria-hidden="true"></span>
+                        Cyberpunk
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Full-screen mobile theme menu -->
+    <div id="mobile-fullscreen-menu" class="fixed inset-0 bg-gray-900/95 z-50 hidden flex flex-col">
+        <div class="flex justify-between items-center p-5 border-b border-accent/30">
+            <h2 class="text-xl font-bold text-accent">Select Theme</h2>
+            <button id="mobile-menu-close" class="p-2 rounded-full hover:bg-accent/20 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="flex-1 overflow-auto p-5">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="current-theme-display mb-6 text-center">
+                    <p class="text-gray-400 mb-2">Current Theme</p>
+                    <div class="inline-block px-4 py-2 rounded-full bg-accent/20 border border-accent/30">
+                        <span id="mobile-current-theme-display" class="font-medium text-accent">Default</span>
+                    </div>
+                </div>
+                
+                <button data-theme="default" class="mobile-theme-option p-4 rounded-lg bg-gray-800/50 border border-yellow-300/30 hover:bg-yellow-300/10 transition-colors duration-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-lg font-medium text-yellow-300">Default</span>
+                        <span class="w-4 h-4 rounded-full bg-yellow-300"></span>
+                    </div>
+                    <div class="theme-preview bg-gradient-to-r from-[#1a1a2e] to-[#0f0f1a] h-16 rounded border border-yellow-300/20 flex items-center justify-center">
+                        <span class="text-yellow-300 text-xs">Preview</span>
+                    </div>
+                </button>
+                
+                <button data-theme="retro" class="mobile-theme-option p-4 rounded-lg bg-gray-800/50 border border-green-400/30 hover:bg-green-400/10 transition-colors duration-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-lg font-medium text-green-400">Retro</span>
+                        <span class="w-4 h-4 rounded-full bg-green-400"></span>
+                    </div>
+                    <div class="theme-preview bg-gradient-to-r from-[#042f2e] to-[#064e3b] h-16 rounded border border-green-400/20 flex items-center justify-center">
+                        <span class="text-green-400 text-xs">Preview</span>
+                    </div>
+                </button>
+                
+                <button data-theme="neon" class="mobile-theme-option p-4 rounded-lg bg-gray-800/50 border border-blue-400/30 hover:bg-blue-400/10 transition-colors duration-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-lg font-medium text-blue-400">Neon</span>
+                        <span class="w-4 h-4 rounded-full bg-blue-400"></span>
+                    </div>
+                    <div class="theme-preview bg-gradient-to-r from-[#0f172a] to-[#1e293b] h-16 rounded border border-blue-400/20 flex items-center justify-center">
+                        <span class="text-blue-400 text-xs">Preview</span>
+                    </div>
+                </button>
+                
+                <button data-theme="cyberpunk" class="mobile-theme-option p-4 rounded-lg bg-gray-800/50 border border-pink-500/30 hover:bg-pink-500/10 transition-colors duration-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-lg font-medium text-pink-500">Cyberpunk</span>
+                        <span class="w-4 h-4 rounded-full bg-pink-500"></span>
+                    </div>
+                    <div class="theme-preview bg-gradient-to-r from-[#18181b] to-[#3f3f46] h-16 rounded border border-pink-500/20 flex items-center justify-center">
+                        <span class="text-pink-500 text-xs">Preview</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <aside id="game-score" class="game-stats absolute top-5 left-5 z-20 flex items-center gap-4"
+        aria-live="polite">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 text-red-500" aria-hidden="true">
+                <use href="sprite.svg#bug-ladybug"></use>
+            </svg>
+            <span id="score-count" class="ml-2" aria-label="Current score">0</span>
+        </div>
+        <div class="flex items-center">
+            <svg class="w-5 h-5 text-yellow-400" aria-hidden="true">
+                <use href="sprite.svg#icon-sparkle"></use>
+            </svg>
+            <span id="best-score" class="ml-2" aria-label="Best score">0</span>
+        </div>
+        <div class="flex items-center">
+            <svg class="w-5 h-5 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 17L9 11L13 15L21 7"></path>
+                <path d="M14 7H21V14"></path>
+            </svg>
+            <span class="ml-2" aria-label="Current level">Level <span id="level-count" class="ml-1">1</span></span>
+        </div>
+    </aside>
+
+    <div class="game-controls fixed bottom-5 left-5 text-gray-400 text-sm z-20" aria-label="Game controls">
+        <kbd class="px-2 py-1 bg-gray-800 rounded">Space</kbd>
+        <span class="ml-2">to catch nearest bug</span>
+    </div>
+
+    <div class="level-progress">
+        <div class="level-progress-bar" style="width: 0%"></div>
+    </div>
+
+    <main class="content-area max-w-4xl w-full h-full flex flex-col items-center justify-center text-white text-center px-4 opacity-0 animate-fade-in relative z-10 content-spacing min-h-screen">
+
+        <div class="mb-8 md:mb-10 opacity-0 animate-fade-in" style="animation-delay: 0.1s;">
+            <div class="emoji-container p-6 md:p-8 rounded-full flex items-center justify-center shadow-sm">
+                <div class="emoji-bounce">
+                    <svg width="70" height="70" class="text-yellow-300" aria-hidden="true">
+                        <use href="sprite.svg#sad-face"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="error-code flex items-center justify-center mt-2 mb-12 md:mb-16 animate-scale-in" style="animation-delay: 0.15s;" id="content-area-404">
+            <span class="text-9xl sm:text-[10rem] md:text-[14rem] font-light bg-clip-text text-transparent tracking-tight text-404 font-sans">4</span>
+            <span class="text-9xl sm:text-[10rem] md:text-[14rem] font-light bg-clip-text text-transparent tracking-tight text-404 font-sans">0</span>
+            <span class="text-9xl sm:text-[10rem] md:text-[14rem] font-light bg-clip-text text-transparent tracking-tight text-404 font-sans">4</span>
+        </div>
+
+        <section class="error-message space-y-5 mb-14">
+            <h2 class="text-white max-w-xl mx-auto text-lg sm:text-xl md:text-2xl font-semibold leading-relaxed animate-slide-up" style="animation-delay: 0.4s;">
+                The page you're looking for can't be found
+            </h2>
+            <p class="text-gray-200 max-w-xl mx-auto text-base sm:text-lg font-normal leading-relaxed animate-slide-up" style="animation-delay: 0.45s;">
+                It looks like you're trying to access a page that either has been deleted or never existed.
+            </p>
+            <p class="detective-message max-w-xl mx-auto text-base sm:text-lg font-light leading-relaxed animate-slide-up italic" style="animation-delay: 0.5s;">
+                Don't worry though! Our digital detectives are on the case.
+                <svg class="w-5 h-5 inline-block align-text-bottom ml-1" aria-hidden="true">
+                    <use href="sprite.svg#icon-detective"></use>
+                </svg>
+            </p>
+        </section>
+
+        <nav class="action-buttons flex flex-col md:flex-row items-center gap-6 md:gap-8 w-full md:w-auto">
+            <a href="/" class="home-button group w-full md:w-auto px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 relative overflow-hidden animate-slide-up flex items-center justify-center md:justify-start gap-3" style="animation-delay: 0.6s;">
+                <svg class="w-5 h-5" aria-hidden="true">
+                    <use href="sprite.svg#icon-home"></use>
+                </svg>
+                <span class="relative z-10">HOME PAGE</span>
+                <span class="absolute inset-0 bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-full"></span>
+            </a>
+
+            <button onclick="history.back()" class="go-back-button w-full md:w-auto rounded-full px-7 py-4 flex items-center justify-center md:justify-start gap-3 border transition-all duration-300 animate-slide-up focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900" style="animation-delay: 0.65s;">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Go Back</span>
+            </button>
+
+            <a href="#" class="report-button w-full md:w-auto rounded-full px-7 py-4 flex items-center justify-center md:justify-start gap-3 border transition-all duration-300 animate-slide-up focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900" style="animation-delay: 0.7s;" id="report-bug-link">
+                <svg class="w-5 h-5" aria-hidden="true">
+                    <use href="sprite.svg#icon-bug"></use>
+                </svg>
+                <span>Report a broken page</span>
+            </a>
+        </nav>
+
+        <div id="dark-mode-badge" class="hidden absolute top-1/2 transform -translate-y-1/2 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-fade-in" aria-hidden="true">
+            Dark Mode ON
+        </div>
+    </main>
+
+    <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound effects">
+        <svg xmlns="http://www.w3.org/2000/svg" class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="sound-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+    </button>
+
+    <footer class="site-footer mt-auto pt-12 pb-6 text-center">
+        <div class="copyright text-xs sm:text-sm text-gray-500 animate-scale-in" style="animation-delay: 0.8s;">
+            © 2025 @toprakdeviren. All rights reserved
+        </div>
+        <nav class="social-links flex flex-wrap gap-4 mt-4 justify-center animate-scale-in" style="animation-delay: 0.9s;" aria-label="Social media links">
+            <a href="#"
+                class="social-icon text-yellow-300 hover:text-yellow-400 transition-colors duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-gray-900 p-2 rounded-full"
+                aria-label="Visit our GitHub page">
+                <span class="sr-only">GitHub</span>
+                <svg width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <use href="sprite.svg#github-icon"></use>
+                </svg>
+            </a>
+            <a href="#"
+                class="social-icon text-yellow-300 hover:text-yellow-400 transition-colors duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-gray-900 p-2 rounded-full"
+                aria-label="Visit our Twitter page">
+                <span class="sr-only">Twitter</span>
+                <svg width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <use href="sprite.svg#twitter-icon"></use>
+                </svg>
+            </a>
+            <a href="#"
+                class="social-icon text-yellow-300 hover:text-yellow-400 transition-colors duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-gray-900 p-2 rounded-full"
+                aria-label="Contact us">
+                <span class="sr-only">Contact</span>
+                <svg width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <use href="sprite.svg#email-icon"></use>
+                </svg>
+            </a>
+        </nav>
+    </footer>
+
+    <div id="bugs-container" class="bug-container absolute inset-0 overflow-hidden pointer-events-none"></div>
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    <script src="game.js" defer></script>
+</body>
+
+</html>
