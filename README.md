@@ -9,7 +9,6 @@ An interactive, playful 404 page where you can catch bugs, level up, and debug y
 
 - 🐞 Clickable bugs with score and level system
 - 🎮 Keyboard support (Spacebar to catch nearest bug)
-- 🌗 Light/dark mode toggle
 - 🎨 Theme selector (e.g., Retro, Modern)
 - 📱 Fully responsive (mobile + desktop)
 - ⚙️ SVG sprite icons for fast loading
